@@ -1,18 +1,31 @@
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?","");
+let numberOfFilms;
+function start(){
+    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+    while(numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)){
+        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+    }
+}
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    private: false
+start();
+
+let genres = [];
+function writeYourGenres(){
+    for(let i = 0; i<3; i++) 
+    genres[i] = prompt(`Ваш любимы жанр под номером ${i+1}`);
+}
+
+ writeYourGenres();
+ for(let i = 1; i<=3; i++) console.log("Genre "+i+" "+genres[i]);
+
+const myDB = {
+    private: true
 };
 
-const a = prompt("Один из последних просмотренных фильмов?",""),
-      b = prompt("Насколько вы его оцените?",""),
-      c = prompt("Один из последних просмотренных фильмов?",""),
-      d = prompt("Насколько вы его оцените?","");
+showDB(myDB.private);
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
-console.log(personalMovieDB);
+function showDB(hidden){
+    if(!hidden)
+    console.log("Hello");
+    if(hidden)
+    console.log("Bye");
+}
