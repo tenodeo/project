@@ -1,4 +1,4 @@
-let numberOfFilms;
+/*let numberOfFilms;
 function start(){
     numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
     while(numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)){
@@ -57,7 +57,7 @@ console.log(Object.keys(options).length);
 options.makeTest();
 
 const {border,bg} = options.colors;
-console.log(border.+" "+bg);
+console.log(border+" "+bg);
 
 for(let key in options){
     if(typeof(options[key] === "object")){
@@ -68,3 +68,23 @@ for(let key in options){
     else 
     console.log(`Свойство ${key} имеет значение ${options[key]}`);
 }
+
+
+*/
+const arr = [2,3,4,5,8];
+//arr.pop();
+//console.log(arr);
+
+
+arr.forEach( function(item, i, arr){
+    //console.log(`${i}: ${item} в массиве ${arr}`);
+});
+
+for(let value of arr){
+    //console.log(value);
+}
+
+const str = prompt(" Question ");
+const products = str.split(",");
+console.log(products.join(" + "));
+    
