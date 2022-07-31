@@ -125,7 +125,7 @@ newAdd.q = 99;
 const video = ["youtube","rutube","retrica"],
       blogs = ["journal","Wall Street","Wordpress"],
       internet = [...video,blogs,"facebook","google"];
-      console.log(internet); */
+      console.log(internet); 
 
 
  
@@ -136,4 +136,47 @@ const video = ["youtube","rutube","retrica"],
       
       const john = Object.create(soldier);
       john.armor = 900;
-      console.log(john.armor);
+      console.log(john.armor);*/
+
+
+    
+      const personalMovieDB = {
+        count: 0,
+        actor: {},
+        movies: {},
+        genres: [],
+        private: true,
+        showMyDB: function(hidden){
+            if(!hidden) console.log(personalMovieDB);
+            else console.log("У вас нет доступа");
+        },
+        
+        start: function(){
+            personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?");
+            while(personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count) )
+            personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?");
+        },
+
+        toggleVisibleMyDB: function(){
+            if(personalMovieDB.private) personalMovieDB.private = false;
+            else personalMovieDB.private = true;
+        },
+
+        writeYourGenres: function(){
+            for(let i = 1; i<=3; i++) {
+                personalMovieDB.genres[i-1] = prompt(`Ваш любимы жанр под номером ${i}`);
+                  while(personalMovieDB.genres[i-1]=='' || personalMovieDB.genres[i-1] == null)
+                    personalMovieDB.genres[i-1] = prompt(`Ваш любимы жанр под номером ${i}`);
+            }
+            personalMovieDB.genres.forEach((item,i) =>{
+                console.log(`Любимый жанр под номером ${i+1} это ${personalMovieDB.genres[i]}`);
+              });
+           }
+    };
+    
+         personalMovieDB.showMyDB(personalMovieDB.private);
+         personalMovieDB.start();
+         personalMovieDB.writeYourGenres();
+         personalMovieDB.toggleVisibleMyDB();
+         personalMovieDB.showMyDB(personalMovieDB.private);  
+      
