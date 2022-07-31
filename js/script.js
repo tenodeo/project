@@ -70,7 +70,7 @@ for(let key in options){
 }
 
 
-*/
+
 const arr = [2,3,4,5,8];
 //arr.pop();
 //console.log(arr);
@@ -87,4 +87,53 @@ for(let value of arr){
 const str = prompt(" Question ");
 const products = str.split(",");
 console.log(products.join(" + "));
-    
+
+
+
+const obj = {
+    a: 1,
+    b: 2,
+    c:{
+        x: 3,
+        y: 9
+    }
+};
+const objCopy = copy(obj);
+objCopy.a = 7;
+// console.log(objCopy);
+// console.log(obj);
+function copy(obj){
+    let objCopy = {};
+    let key;
+    for(key in obj){
+        objCopy[key] = obj[key];
+    }
+    return objCopy;
+}
+const add = {
+    q: 15,
+    w: 22
+};
+
+const newAdd = Object.assign({},add);
+newAdd.q = 99;
+// console.log(add);
+// console.log(newAdd);
+
+//console.log(Object.assign(obj,add));
+
+const video = ["youtube","rutube","retrica"],
+      blogs = ["journal","Wall Street","Wordpress"],
+      internet = [...video,blogs,"facebook","google"];
+      console.log(internet); */
+
+
+ 
+      const soldier = {
+        health: 400,
+        armor: 100
+      };
+      
+      const john = Object.create(soldier);
+      john.armor = 900;
+      console.log(john.armor);
