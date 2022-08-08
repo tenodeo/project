@@ -1,23 +1,24 @@
-window.addEventListener('DOMContentLoaded', () =>{
-    const box = document.querySelector('.box');
+const btns = document.querySelectorAll('button'),
+      wrapper = document.querySelector('.btn-block');
 
-    box.addEventListener('touchstart', (e)=>{
-        e.preventDefault();
+btns[0].style.backgroundColor = "cyan";
+// console.log(btns[0].classList.add('red'));
 
-        console.log('Start');
-        console.log(e.touches);
-    });
-
-    box.addEventListener('touchmove', (e)=>{
-        e.preventDefault();
-
-        console.log('Move');
-    });
-
-    box.addEventListener('touchend', (e)=>{
-        e.preventDefault();
-
-        console.log('End');
-    });
-
+btns[0].addEventListener('click', ()=>{
+    // if(!btns[1].classList.contains('red')){
+    //     btns[1].classList.add('red');
+    // }else{
+    //     btns[1].classList.remove('red');
+    // }
+    btns[1].classList.toggle('red');
 });
+
+wrapper.addEventListener('click', (event)=>{
+    if(event.target && event.target.matches('button.red')){
+        console.log('Hello');
+    }
+});
+
+const btn = document.createElement('button');
+btn.classList.add('red');
+wrapper.append(btn);
